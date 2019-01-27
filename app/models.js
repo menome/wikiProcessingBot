@@ -16,17 +16,19 @@ module.exports = {
 } 
 
 function wikiPageModel(bot, msg,response){
-    var pageContents = response.text;
-    var categories = response.categories;
-    var links = response.links;
-    var externalLinks = response.externallinks;
-    //map the stuff to connections
-    var categorylinkConnections = categories.map(x=>msg.Connections.push(categoryTransform(x)));
-    var externalLinkConnections = externalLinks.map(x=>msg.Connections.push(externalLinkTranform(x)));
-    var linkConnections = links.map(x=>msg.Connections.push(linkTranform(x)));
-    // msg.Connections += (JSON.stringify(linkConnections));
-    // msg.Connections += (JSON.stringify(externalLinkConnections));
-    // msg.Connections += (JSON.stringify(categorylinkConnections));
+    if (response != null){
+        var pageContents = response.text;
+        var categories = response.categories;
+        var links = response.links;
+        var externalLinks = response.externallinks;
+        //map the stuff to connections
+        var categorylinkConnections = categories.map(x=>msg.Connections.push(categoryTransform(x)));
+        var externalLinkConnections = externalLinks.map(x=>msg.Connections.push(externalLinkTranform(x)));
+        var linkConnections = links.map(x=>msg.Connections.push(linkTranform(x)));
+        // msg.Connections += (JSON.stringify(linkConnections));
+        // msg.Connections += (JSON.stringify(externalLinkConnections));
+        // msg.Connections += (JSON.stringify(categorylinkConnections));
+    }
     msg.Properties.pageContents = pageContents;
     bot.logger.info(JSON.stringify(msg));
     return msg;
