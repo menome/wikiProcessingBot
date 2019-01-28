@@ -30,7 +30,7 @@ function wikiPageModel(bot, msg,response){
         // msg.Connections += (JSON.stringify(categorylinkConnections));
     }
     msg.Properties.pageContents = pageContents;
-    bot.logger.info(JSON.stringify(msg));
+    //bot.logger.info(JSON.stringify(msg));
     return msg;
 }
 
@@ -42,7 +42,7 @@ function categoryTransform(category){
         "RelType": "CATEGORIZES",
         "ForwardRel": true,
         "ConformedDimensions": {
-          "name":category["*"]
+          "name":category["*"].replace("\"","")
         },
         "Properties": {
         }
@@ -57,7 +57,7 @@ function externalLinkTranform(link){
         "RelType": "LINKS_TO",
         "ForwardRel": true,
         "ConformedDimensions": {
-          "page":link
+          "page":link.replace("\"","")
         },
         "Properties": {
         }
@@ -70,7 +70,7 @@ function linkTranform(link){
         "RelType": "LINKS_TO",
         "ForwardRel": true,
         "ConformedDimensions": {
-          "name":link["*"]
+          "name":link["*"].replace("\"","")
         },
         "Properties": {
         }
