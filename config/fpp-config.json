@@ -1,0 +1,35 @@
+{
+  "neo4j": {
+    "enable": true,
+    "url": "bolt://neo4j",
+    "user": "neo4j",
+    "pass": "CodaGlenBaronyMonk"
+  },
+  "rabbit": {
+    "enable": true,
+    "url": "amqp://rabbitmq:68N34eTuS3n3dVzxBVqg@rabbit:5672?heartbeat=3600",
+    "routingKey": "syncevents.crawler",
+    "exchange": "syncevents",
+    "exchangeType": "topic"
+  },
+  "rabbit_outgoing": {
+    "url": "amqp://rabbitmq:68N34eTuS3n3dVzxBVqg@rabbit:5672?heartbeat=3600",
+    "routingKey": "fpp.added",
+    "exchange": "fpp",
+    "exchangeType": "topic"
+  },
+  "librarian": {
+    "enable": true,
+    "host": "http://librarian:80",
+    "username": "botuser",
+    "password": "UzTSy9zp46kKhTT6"
+  },
+  "downstream_actions": {
+    "application/pdf": ["fpp.fulltext", "fpp.thumbnail", "fpp.tables"],
+    "image/png": "fpp.thumbnail",
+    "image/jpeg": "fpp.thumbnail",
+    "image/gif": "fpp.thumbnail",
+    "image/tiff": "fpp.thumbnail",
+    "error": false
+  }
+}

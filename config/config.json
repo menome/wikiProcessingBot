@@ -2,13 +2,13 @@
     "port": 3015,
     "rabbit": {
         "enable": true,
-        "url": "amqp://rabbitmq:CodaGlenBaronyMonk@10.2.10.167:5672?heartbeat=3600",
+        "url": "amqp://rabbitmq:CodaGlenBaronyMonk@localhost:5672?heartbeat=3600",
         "routingKey": "fpp.wikipediaedit_queue",
         "exchange": "fpp",
         "exchangeType": "topic"
     },
     "rabbit_outgoing": {
-      "url": "amqp://rabbitmq:CodaGlenBaronyMonk@10.2.10.167:5672?heartbeat=3600",
+      "url": "amqp://rabbitmq:CodaGlenBaronyMonk@localhost:5672?heartbeat=3600",
       "routingKey": "fpp",
       "exchange": "fpp",
       "exchangeType": "topic"
